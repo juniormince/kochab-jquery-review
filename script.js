@@ -19,10 +19,21 @@ function onReady() {
 
     // events
     // event handler
-    $('#clickableButton').on('click', function() { //anonymous call back function
+    $('#addPersonButton').on('click', function() { //anonymous call back function
         console.log($('#nameInput').val());
+        let name= $('#nameInput').val();
+        $('#nameList').append('<li>' + name + ' ' + '<button class="deleteButton">delete</button></li>' + '</li>');
+
     });
+
+    $('#nameList').on('click', '.deleteButton', function() {
+        console.log('delete button was clicked');
+        $(this).parent().remove();
+    });
+    
     $('#secondButton').on('click', function() {
         console.log('i was clicked');
     });
+
+
 }
